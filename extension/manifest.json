@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "accessibility-dev-helper",
+  "version": "1.0.0",
+  "description": "Real-time screen reader simulation for development pages.",
+  "permissions": ["storage", "activeTab", "scripting"],
+  "host_permissions": ["http://*/*", "https://*/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Toggle accessibility-dev-helper"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content-script.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
